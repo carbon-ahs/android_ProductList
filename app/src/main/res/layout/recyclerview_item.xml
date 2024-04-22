@@ -14,7 +14,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/productNameTV"
+                android:id="@+id/row_productNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
@@ -22,11 +22,11 @@
                 android:text="Name"/>
 
             <TextView
-                android:id="@+id/productPriceTV"
+                android:id="@+id/row_productPriceTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
-                android:layout_below="@id/productNameTV"
+                android:layout_below="@id/row_productNameTV"
                 android:text="$0.00"/>
 
         </RelativeLayout>
