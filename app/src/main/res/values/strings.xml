@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProductList</string>
+    <string name="fab_text">fab</string>
 </resources>
