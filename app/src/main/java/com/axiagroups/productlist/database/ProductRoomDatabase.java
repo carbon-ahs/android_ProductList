@@ -41,12 +41,12 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
                 ProductDao dao = INSTANCE.productDao();
-                dao.deleteAll();
+                dao.deleteAllProducts();
 
                 Product product = new Product("Product1", 123);
-                dao.insert(product);
+                dao.insertProduct(product);
                 product = new Product("Product2", 222);
-                dao.insert(product);
+                dao.insertProduct(product);
 
             });
         }

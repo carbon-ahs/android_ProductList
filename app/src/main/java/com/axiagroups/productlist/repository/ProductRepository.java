@@ -24,9 +24,24 @@ public class ProductRepository {
         return mAllProducts;
     }
 
-    public void insert(Product product) {
-        ProductRoomDatabase.databaseWriteExecutor.execute(() ->{
-            mProductDao.insert(product);
+    public void insertProduct(Product product) {
+        ProductRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mProductDao.insertProduct(product);
         });
     }
+
+    public void updateProduct(Product product) {
+        ProductRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mProductDao.updateProduct(product);
+        });
+    }
+
+
+    public void deleteProduct(Product product) {
+        ProductRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mProductDao.deleteProduct(product);
+        });
+    }
+
+
 }

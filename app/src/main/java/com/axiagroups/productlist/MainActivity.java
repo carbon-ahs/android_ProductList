@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == NEW_PRODUCT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Product product = new Product(data.getStringExtra(NewProductActivity.EXTRA_REPLAY_PRODUCT_NAME), Integer.valueOf(data.getStringExtra(NewProductActivity.EXTRA_REPLAY_PRODUCT_PRICE)));
-            productViewModel.insert(product);
+            productViewModel.insertProduct(product);
         } else {
             Toast.makeText(
                     getApplicationContext(),

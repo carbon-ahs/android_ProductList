@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.axiagroups.productlist.model.Product;
 
@@ -13,10 +14,10 @@ import java.util.List;
 @Dao
 public interface ProductDao {
     @Insert
-    void insert(Product product);
+    void insertProduct(Product product);
 
     @Query("DELETE FROM product_table")
-    void deleteAll();
+    void deleteAllProducts();
 
     /* ----------------------------------
     By default, to avoid poor UI performance, Room doesn't allow you to issue queries
@@ -25,4 +26,12 @@ public interface ProductDao {
      ------------------------------------- */
     @Query("SELECT * FROM product_table")
     LiveData<List<Product>> getAllProducts();
+
+    @Update
+    void updateProduct(Product product);
+
+    @Delete
+    void deleteProduct(Product product);
+
+//    @Query("SELECT ")
 }

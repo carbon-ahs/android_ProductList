@@ -14,6 +14,7 @@ import java.util.List;
 public class ProductViewModel extends AndroidViewModel {
     private ProductRepository mRepository;
     private final LiveData<List<Product>> mAllProducts;
+
     public ProductViewModel(@NonNull Application application) {
         super(application);
         mRepository = new ProductRepository(application);
@@ -24,7 +25,15 @@ public class ProductViewModel extends AndroidViewModel {
         return mAllProducts;
     }
 
-    public void insert(Product product) {
-        mRepository.insert(product);
+    public void insertProduct(Product product) {
+        mRepository.insertProduct(product);
+    }
+
+    public void deleteProduct(Product product) {
+        mRepository.deleteProduct(product);
+    }
+
+    public void updateProduct(Product product) {
+        mRepository.updateProduct(product);
     }
 }
