@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ProductList</string>
     <string name="fab_text">fab</string>
+    <string name="hint_product_name">Add name</string>
+    <string name="button_text_save">save</string>
+    <string name="hint_product_price">Input Price</string>
+    <string name="empty_not_saved">Fields munt not be empty</string>
 </resources>

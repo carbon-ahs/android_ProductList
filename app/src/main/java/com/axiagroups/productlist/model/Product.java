@@ -15,12 +15,21 @@ public class Product {
 //        this.price = price;
 //    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
 
-    public Product(int id, String name, int price) {
-        this.id = id;
+//    public Product(int id, String name, int price) {
+//        this.id = id;
+//        this.name = name;
+//        this.price = price;
+//    }
+
+    public Product(String name, int price) {
         this.name = name;
         this.price = price;
     }

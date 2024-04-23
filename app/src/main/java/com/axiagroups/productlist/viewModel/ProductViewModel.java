@@ -20,7 +20,7 @@ public class ProductViewModel extends AndroidViewModel {
         mAllProducts = mRepository.getAllProducts();
     }
 
-    LiveData<List<Product>> getAllProducts() {
+    public LiveData<List<Product>> getAllProducts() {
         return mAllProducts;
     }
 

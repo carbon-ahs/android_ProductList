@@ -2,9 +2,11 @@ package com.axiagroups.productlist.database;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.axiagroups.productlist.database.dao.ProductDao;
 import com.axiagroups.productlist.model.Product;
@@ -27,8 +29,26 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                     ProductRoomDatabase.class, DB_NAME)
+                    .addCallback(sRoomDatabaseCallback)
                     .build();
         }
         return INSTANCE;
     }
+
+    public static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            databaseWriteExecutor.execute(() -> {
+                ProductDao dao = INSTANCE.productDao();
+                dao.deleteAll();
+
+                Product product = new Product("Product1", 123);
+                dao.insert(product);
+                product = new Product("Product2", 222);
+                dao.insert(product);
+
+            });
+        }
+    };
 }
